@@ -65,6 +65,13 @@ const App = () => {
         setNewNumber('');
 
         setTimeout(() => setNotification(null), 5000);
+      })
+      .catch(error => {
+        console.log(error.response.data.error)
+        setNotification(`${newNumber} is not a valid number`);
+        setNotificationStyle(redStyle);
+        
+        setTimeout(() => setNotification(null), 5000);
       });
   }
 
